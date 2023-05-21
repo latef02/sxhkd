@@ -1,0 +1,67 @@
+#######browsers##########
+super + alt + f
+	firefox
+super + alt + c 
+	chromium
+super + alt +v 
+	vivaldi-stable
+############################
+super + alt + m
+	notify-send "starting mpv" & alacritty -e  mpv   $(xclip -selection clipboard -o) & 
+
+
+super + Escape
+  pkill -USR1 -x sxhkd
+
+########sysytem exit########
+super + BackSpace
+	slock
+super  + alt + e 
+	/home/latef/scripts/exit.sh
+super + e 
+	/home/latef/scripts/shutdown.sh
+####volume###
+super + Down 
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -10%; kill -44 $(pidof dwmblocks)
+
+super + Up 
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +10%; kill -44 $(pidof dwmblocks)
+super + F1 
+	pactl set-sink-mute @DEFAULT_SINK@ true
+super + F2
+	pactl set-sink-mute @DEFAULT_SINK@ false 
+ ##### end volum ####
+##########file manager#######
+super + alt + l
+	alacritty -e  lfrun
+##### end file ####
+#######mount #########
+super +  alt + n
+	alacritty -e /home/latef/scripts/mount.sh 
+################################################
+ctrl + space  
+	rofi -show drun
+super + alt + t
+	alacritty  -e vim
+############time############
+super + alt + b 
+	alacritty -e tty-clock -C 1 -s
+##############################
+Print
+       /home/latef/scripts/screenshot.sh
+
+
+super + n
+    setxkbmap -query | grep -q 'fr' && setxkbmap ar || setxkbmap fr,us
+super + n
+    setxkbmap -query | grep -q 'fr' && setxkbmap ar || setxkbmap fr,us
+
+
+# screen brightness controls
+{super + F12, super + F11}
+   sudo  xbacklight {-inc 10, -dec 10}; \
+   get_brightness=$(xbacklight -get | cut -f 1 -d '.'); \
+   dunstify "  Brightness: "$get_brightness -t 1000 -r 1
+#Radio Script
+super +  F9
+	/home/latef/scripts/radios.sh
