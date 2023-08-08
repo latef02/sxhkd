@@ -6,9 +6,8 @@ super + alt + c
 super + alt +v 
 	vivaldi-stable
 ############################
-super + alt + m
+super + F5
 	notify-send "starting mpv" & alacritty -e  mpv   $(xclip -selection clipboard -o) & 
-
 
 super + Escape
   pkill -USR1 -x sxhkd
@@ -52,9 +51,9 @@ Print
 
 
 super + n
-    setxkbmap -query | grep -q 'fr' && setxkbmap ar || setxkbmap fr,us
-super + n
-    setxkbmap -query | grep -q 'fr' && setxkbmap ar || setxkbmap fr,us
+    setxkbmap -query | grep -q 'fr' && setxkbmap ara || setxkbmap fr,us
+super + n 
+    setxkbmap -query | grep -q 'fr' && setxkbmap ara || setxkbmap fr,us
 
 
 # screen brightness controls
