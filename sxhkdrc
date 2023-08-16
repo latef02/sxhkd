@@ -20,11 +20,16 @@ super  + alt + e
 super + e 
 	/home/latef/scripts/shutdown.sh
 ####volume###
-super + Down 
-	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -10%; kill -44 $(pidof dwmblocks)
 
-super + Up 
-	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +10%; kill -44 $(pidof dwmblocks)
+super + { dollar, dead_circumflex}
+	$HOME/scripts/volum.sh {Up, Down}
+
+
+#super +  dead_circumflex
+#	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -10%; kill -44 $(pidof dwmblocks)
+
+#super + dollar
+#	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +10%; kill -44 $(pidof dwmblocks)
 super + F1 
 	pactl set-sink-mute @DEFAULT_SINK@ true
 super + F2
