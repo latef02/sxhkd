@@ -21,7 +21,7 @@ super + e
 	/home/latef/scripts/shutdown.sh
 ####volume###
 
-super + { dollar, dead_circumflex}
+super + { Up, Down}
 	$HOME/scripts/volum.sh {Up, Down}
 
 
@@ -66,6 +66,9 @@ super + n
    sudo  xbacklight {-inc 10, -dec 10}; \
    get_brightness=$(xbacklight -get | cut -f 1 -d '.'); \
    dunstify "  Brightness: "$get_brightness -t 1000 -r 1
+   pkill -RTMIN+30 dwmblocks
+
+
 #Radio Script
 super +  F9
 	/home/latef/scripts/radios.sh
