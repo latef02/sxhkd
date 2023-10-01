@@ -1,13 +1,9 @@
 #######browsers##########
-super + alt + f
-	firefox
-super + alt + c 
-	chromium
-super + alt +v 
-	vivaldi-stable
+super + { f, c, v}
+	{firefox,chromium,vivaldi-stable}
 ############################
 super + F5
-	notify-send "starting mpv" & alacritty -e  mpv   $(xclip -selection clipboard -o) & 
+	notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) & 
 
 super + Escape
   pkill -USR1 -x sxhkd
@@ -37,28 +33,28 @@ super + F2
  ##### end volum ####
 ##########file manager#######
 super + alt + l
-	alacritty -e  lfrun
+	st -e  lfrun
 ##### end file ####
 #######mount #########
 super +  alt + n
-	alacritty -e /home/latef/scripts/mount.sh 
+	st -e /home/latef/scripts/mount.sh 
 ################################################
 ctrl + space  
 	rofi -show drun
 super + alt + t
-	alacritty  -e vim
+	st  -e vim
 ############time############
 super + alt + b 
-	alacritty -e tty-clock -C 1 -s
+	st -e tty-clock -C 1 -s
 ##############################
 Print
        /home/latef/scripts/screenshot.sh
 
 
-super + n
-    setxkbmap -query | grep -q 'fr' && setxkbmap ara || setxkbmap fr,us
+
 super + n 
-    setxkbmap -query | grep -q 'fr' && setxkbmap ara || setxkbmap fr,us
+     setxkbmap -query | grep -q 'fr' && setxkbmap ara || setxkbmap fr
+    
 
 
 # screen brightness controls
