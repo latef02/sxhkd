@@ -4,7 +4,10 @@ super + { f, c, v}
 ############################
 super + F5
 	notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) & 
+super + F6	
+	notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video & 
 
+#######restart sxhkd######
 super + Escape
   pkill -USR1 -x sxhkd
 
@@ -39,7 +42,7 @@ super + alt + l
 super +  alt + n
 	st -e /home/latef/scripts/mount.sh 
 ################################################
-ctrl + space  
+super + space  
 	rofi -show drun
 super + alt + t
 	st  -e vim
