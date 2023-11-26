@@ -2,14 +2,15 @@
 super + { f, c, v}
 	{firefox,chromium,vivaldi-stable}
 ############################
-super + F5
-	notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) & 
-super + F6	
-	notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video & 
+super + {F5,F6}
+       {notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) &,notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video &} 
+	
+	
 
 #######restart sxhkd######
 super + Escape
-  pkill -USR1 -x sxhkd
+  pkill -USR1 -x sxhkd 
+  notify-send "sxhkd: sxhkd has been restarted."
 
 ########sysytem exit########
 super + BackSpace
@@ -22,6 +23,9 @@ super + e
 
 super + { Up, Down}
 	$HOME/scripts/volum.sh {Up, Down}
+######Radio#####
+super + F9	
+   /home/latef/scripts/radio
 
 
 #super +  dead_circumflex
@@ -39,15 +43,16 @@ super + alt + l
 	st -e  lfrun
 ##### end file ####
 #######mount #########
-super +  alt + n
+super +  alt + m
 	st -e /home/latef/scripts/mount.sh 
-################################################
+##############rofi##################################
 super + space  
-	rofi -show drun
-super + alt + t
+	rofi -show drun -show-icons
+###########vim#########
+super + alt + v
 	st  -e vim
 ############time############
-super + alt + b 
+super + alt + t 
 	st -e tty-clock -C 1 -s
 ##############################
 Print
@@ -68,6 +73,10 @@ super + n
    pkill -RTMIN+30 dwmblocks
 
 
-#Radio Script
-super +  F9
-	/home/latef/scripts/radios.sh
+# blank screen
+super + alt + BackSpace
+	sleep 0.5; \
+	xset dpms force off
+	
+
+
