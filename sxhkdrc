@@ -2,7 +2,7 @@
 super + { f, c, v}
 	{firefox,chromium,vivaldi-stable}
 ############################
-super + {F5,F6}
+super + alt {v,a}
        {notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) &,notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video &} 
 	
 	
@@ -11,6 +11,9 @@ super + {F5,F6}
 super + Escape
   pkill -USR1 -x sxhkd 
   notify-send "sxhkd: sxhkd has been restarted."
+#######spotify start#####
+super + s 
+	spotify-launcher
 
 ########sysytem exit########
 super + BackSpace
@@ -23,9 +26,10 @@ super + e
 
 super + { Up, Down}
 	$HOME/scripts/volum.sh {Up, Down}
-######Radio#####
-super + F9	
-   /home/latef/scripts/radio
+
+#####colorpick####
+super + alt + c
+   /home/latef/scripts/colorpick
 
 
 #super +  dead_circumflex
@@ -48,9 +52,6 @@ super +  alt + m
 ##############rofi##################################
 super + space  
 	rofi -show drun -show-icons
-###########vim#########
-super + alt + v
-	st  -e vim
 ############time############
 super + alt + t 
 	st -e tty-clock -C 1 -s
@@ -66,9 +67,8 @@ super + n
 
 
 # screen brightness controls
-{super + F12, super + F11}
+{super + alt + Up, super + alt + Down}
    sudo  xbacklight {-inc 10, -dec 10}; \
-   get_brightness=$(xbacklight -get | cut -f 1 -d '.'); \
    dunstify "  Brightness: "$get_brightness -t 1000 -r 1
    pkill -RTMIN+30 dwmblocks
 
