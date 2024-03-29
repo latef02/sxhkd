@@ -1,6 +1,6 @@
 #######browsers##########
-super + { f, c, v}
-	{firefox,chromium,vivaldi-stable}
+super + v
+	vivaldi & notify-send "browser started" 
 ############################
 super + alt {v,a}
        {notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) &,notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video &} 
@@ -9,19 +9,18 @@ super + alt {v,a}
 
 #######restart sxhkd######
 super + Escape
-  pkill -USR1 -x sxhkd 
-  notify-send "sxhkd: sxhkd has been restarted."
+  pkill -USR1 -x sxhkd &&  notify-send "sxhkd: sxhkd has been restarted."
 #######spotify start#####
-super + s 
-	spotify-launcher
+#super + s 
+#	spotify-launcher
 
 ########sysytem exit########
-super + BackSpace
-	slock
-super  + alt + e 
-	/home/latef/scripts/exit.sh
-super + e 
-	/home/latef/scripts/shutdown.sh
+#super + BackSpace
+#	slock
+#super  + alt + e 
+#	/home/latef/scripts/exit.sh
+#super + e 
+#	/home/latef/scripts/shutdown.sh
 ####volume###
 
 super + { Up, Down}
@@ -37,14 +36,14 @@ super + alt + c
 
 #super + dollar
 #	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +10%; kill -44 $(pidof dwmblocks)
-super + F1 
+super + KP_Insert 
 	pactl set-sink-mute @DEFAULT_SINK@ true
-super + F2
+super + KP_End
 	pactl set-sink-mute @DEFAULT_SINK@ false 
  ##### end volum ####
 ##########file manager#######
-super + alt + l
-	st -e  lfrun
+#super + alt + l
+#	st -e  lfrun
 ##### end file ####
 #######mount #########
 super +  alt + m
@@ -53,8 +52,8 @@ super +  alt + m
 super + space  
 	rofi -show drun -show-icons
 ############time############
-super + alt + t 
-	st -e tty-clock -C 1 -s
+#super + alt + t 
+#	st -e tty-clock -C 1 -s
 ##############################
 Print
        /home/latef/scripts/screenshot.sh
@@ -69,14 +68,15 @@ super + n
 # screen brightness controls
 {super + alt + Up, super + alt + Down}
    sudo  xbacklight {-inc 10, -dec 10}; \
+   get_brightness=$(xbacklight -get | cut -f 1 -d '.'); \
    dunstify "  Brightness: "$get_brightness -t 1000 -r 1
    pkill -RTMIN+30 dwmblocks
 
 
 # blank screen
-super + alt + BackSpace
-	sleep 0.5; \
-	xset dpms force off
+#super + alt + BackSpace
+#	sleep 0.5; \
+#	xset dpms force off
 	
 
 
