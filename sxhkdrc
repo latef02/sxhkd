@@ -72,7 +72,6 @@ super + n
    dunstify "  Brightness: "$get_brightness -t 1000 -r 1
    pkill -RTMIN+30 dwmblocks
 
-
 # blank screen
 #super + alt + BackSpace
 #	sleep 0.5; \
