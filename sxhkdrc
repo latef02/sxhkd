@@ -2,7 +2,7 @@
 super + v
 	vivaldi & notify-send "browser started" 
 ############################
-super + alt {v,a}
+super + alt {v,n}
        {notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) &,notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video &} 
 	
 	
