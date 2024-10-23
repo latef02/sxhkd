@@ -1,6 +1,6 @@
 #######browsers##########
-super + v
-	vivaldi & notify-send "browser started" 
+super + {v,c} 
+	{vivaldi & notify-send "Vivaldi started", code & notify-send "Visual studio started"}
 ############################
 super + alt {v,n}
        {notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) &,notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video &} 
@@ -11,9 +11,8 @@ super + alt {v,n}
 super + Escape
   pkill -USR1 -x sxhkd &&  notify-send "sxhkd: sxhkd has been restarted."
 #######spotify start#####
-#super + s 
-#	spotify-launcher
-
+super + alt + s
+	spotube & notify-send "spotube started"
 ########sysytem exit########
 #super + BackSpace
 #	slock
@@ -28,15 +27,14 @@ super + { Up, Down}
 
 #####colorpick####
 super + alt + c
-   /home/latef/scripts/colorpick
-
+   /home/latef/scripts/colorpick & notify-send "color pick used"
 
 #super +  dead_circumflex
 #	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -10%; kill -44 $(pidof dwmblocks)
 
 #super + dollar
 #	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +10%; kill -44 $(pidof dwmblocks)
-super + KP_Insert 
+super + KP_Insert
 	pactl set-sink-mute @DEFAULT_SINK@ true
 super + KP_End
 	pactl set-sink-mute @DEFAULT_SINK@ false 
@@ -59,23 +57,20 @@ Print
        /home/latef/scripts/screenshot.sh
 
 
-
 super + n 
-     setxkbmap -query | grep -q 'fr' && setxkbmap ara || setxkbmap fr
-    
+     setxkbmap -query | grep -q 'fr' && setxkbmap ara || setxkbmap fr    
 
 
 # screen brightness controls
 {super + alt + Up, super + alt + Down}
    sudo  xbacklight {-inc 10, -dec 10}; \
    get_brightness=$(xbacklight -get | cut -f 1 -d '.'); \
-   dunstify "  Brightness: "$get_brightness -t 1000 -r 1
+   dunstify "💡  Brightness: "$get_brightness -t 1000 -r 1
    pkill -RTMIN+30 dwmblocks
 
 # blank screen
-#super + alt + BackSpace
-#	sleep 0.5; \
-#	xset dpms force off
+super + alt + BackSpace
+	sleep 0.5; \
+	xset dpms force off
 	
-
 
