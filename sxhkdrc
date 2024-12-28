@@ -49,12 +49,17 @@ super +  alt + m
 ##############rofi##################################
 super + space  
 	rofi -show drun -show-icons
+super + alt + e 
+	rofi -modi emoji -show emoji
+
 ############time############
 #super + alt + t 
 #	st -e tty-clock -C 1 -s
 ##############################
-Print
+super + Print + alt 
        /home/latef/scripts/screenshot.sh
+Print 
+  maim -u -i $(xdotool getactivewindow) | xclip -selection  clipboard -t image/png
 
 
 super + n 
