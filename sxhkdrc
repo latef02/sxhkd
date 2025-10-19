@@ -1,6 +1,6 @@
 #######browsers##########
 super + {v,c} 
-	{vivaldi & notify-send "Vivaldi started", code & notify-send "Visual studio started"}
+	{zen-browser & notify-send "Zen Browser Started", code & notify-send "Visual studio started"}
 ############################
 super + alt {v,n}
        {notify-send "starting mpv" & st -e  mpv   $(xclip -selection clipboard -o) &,notify-send "starting audio" & st -e  mpv   $(xclip -selection clipboard -o) --no-video &} 
@@ -56,7 +56,7 @@ super + alt + e
 #super + alt + t 
 #	st -e tty-clock -C 1 -s
 ##############################
-super + Print + alt 
+super + Print 
        /home/latef/scripts/screenshot.sh
 Print 
   maim -u -i $(xdotool getactivewindow) | xclip -selection  clipboard -t image/png
@@ -70,7 +70,7 @@ super + n
 {super + alt + Up, super + alt + Down}
    sudo  xbacklight {-inc 10, -dec 10}; \
    get_brightness=$(xbacklight -get | cut -f 1 -d '.'); \
-   dunstify "💡  Brightness: "$get_brightness -t 1000 -r 1
+   notify-send  "💡  Brightness: "$get_brightness -t 1000 -r 1
    pkill -RTMIN+30 dwmblocks
 
 # blank screen
